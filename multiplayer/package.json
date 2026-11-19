@@ -1,0 +1,30 @@
+{
+  "name": "arcanum-online",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Arcanum Online: a 4-player wizard duel in the Shattered Meadow",
+  "scripts": {
+    "dev": "concurrently -k -n server,client \"tsx watch src/server/index.ts\" \"vite\"",
+    "build": "vite build && tsc -p tsconfig.server.json",
+    "start": "node dist/server/server/index.js",
+    "test:server": "node test/server-sim.mjs",
+    "typecheck": "tsc --noEmit -p tsconfig.json && tsc --noEmit -p tsconfig.server.json"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "three": "^0.160.0",
+    "ws": "^8.18.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.1",
+    "@types/three": "^0.160.0",
+    "@types/ws": "^8.5.13",
+    "concurrently": "^9.1.0",
+    "tsx": "^4.19.2",
+    "typescript": "^5.6.3",
+    "vite": "^5.4.11"
+  }
+}

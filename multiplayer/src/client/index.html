@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Arcanum Online</title>
+  <meta name="description" content="A four-wizard duel in the Shattered Meadow. Claim the Sage Relic and unleash the Grand Fissure.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Spectral:ital,wght@0,400;0,600;1,400&display=swap">
+</head>
+<body>
+  <canvas id="c"></canvas>
+
+  <!-- in-match HUD -->
+  <div id="hud" hidden>
+    <div id="bar"></div>
+    <div id="spellname"></div>
+    <div id="spelldesc"></div>
+    <div id="cross"><i></i></div>
+    <div id="hitnum"></div>
+    <div id="matchinfo"><div id="mi-mode"></div><div id="mi-clock"></div><ol id="mi-board"></ol></div>
+    <div id="relicinfo"><span class="relic-gem"></span><span id="relictext"></span><b class="relic-bar"><i id="relicfill"></i></b></div>
+    <ul id="feed"></ul>
+    <div id="banner"></div>
+    <div id="vitals">
+      <div id="chips"></div>
+      <div id="hpbar"><i id="hpfill"></i><span id="hptext">100</span></div>
+    </div>
+    <div id="death" hidden><h2 id="deathtitle"></h2><p id="deathsub"></p></div>
+    <div id="help">
+      <b>WASD</b> move · <b>Shift</b> sprint · <b>Space</b> jump · <b>Drag</b> look · <b>Click</b> or <b>F</b> cast<br>
+      <b>1–7</b> spells · <b>G</b> Grand Fissure (Grand Sage only) · <b>Tab</b> scores · <b>H</b> hide help
+    </div>
+    <div id="stats"></div>
+  </div>
+
+  <!-- room panel: docked so you can practise while waiting -->
+  <aside id="room" hidden>
+    <div class="room-head">
+      <span class="label">Match code</span>
+      <div class="code-row"><strong id="roomcode">----</strong><button id="copycode" type="button">Copy</button></div>
+      <span class="hint">Friends join with this code. Up to 4 wizards.</span>
+    </div>
+    <ul id="roster"></ul>
+    <div id="modes"></div>
+    <button id="startbtn" class="primary" type="button">Start match</button>
+    <p id="waithost" class="hint" hidden>Waiting for the host to start. Practise your spells meanwhile.</p>
+    <p class="hint">Claim the Sage Relic at the golden beam in the ruins to become the Grand Sage.</p>
+  </aside>
+
+  <!-- scoreboard (hold Tab) -->
+  <div id="scores" hidden><h3>Standings</h3><table><thead><tr><th>Wizard</th><th>Score</th><th>KOs</th><th>Rounds</th></tr></thead><tbody id="scorebody"></tbody></table></div>
+
+  <!-- game over -->
+  <div id="over" hidden>
+    <div class="over-card">
+      <span class="label">Match over</span>
+      <h2 id="overtitle"></h2>
+      <ol id="overlist"></ol>
+      <button id="lobbybtn" class="primary" type="button">Back to lobby</button>
+      <p id="overwait" class="hint" hidden>The host can start a new match.</p>
+    </div>
+  </div>
+
+  <!-- title / join screen -->
+  <div id="menu">
+    <div class="menu-card">
+      <h1>ARCANUM <span>Online</span></h1>
+      <p class="tag">Four wizards. One relic. The earth splits for the Grand Sage.</p>
+      <label for="name">Wizard name</label>
+      <input id="name" maxlength="16" autocomplete="off" placeholder="Merlin">
+      <div class="menu-actions">
+        <button id="createbtn" class="primary" type="button" disabled>Create match</button>
+        <div class="join">
+          <input id="code" maxlength="4" autocomplete="off" placeholder="CODE" aria-label="Match code">
+          <button id="joinbtn" type="button" disabled>Join</button>
+        </div>
+      </div>
+      <p id="menuerr" role="alert"></p>
+      <p id="loading">Forging the world…</p>
+      <p class="fine">Everything you see and hear is generated in code: meshes, textures, physics, light and sound.</p>
+    </div>
+  </div>
+  <script type="module" src="./main.ts"></script>
+</body>
+</html>

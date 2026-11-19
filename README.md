@@ -17,3 +17,8 @@ Open `index.html` in a modern browser and click to enter.
 Spells: Inferno, Void Singularity, Fire Tornado, Glacial Nova, Storm Lance, Gale Blast, Verdant Bloom.
 
 Add `?lowspec` to the URL for less grass, a smaller shadow map and no MSAA.
+
+## Arcanum Online (4 players)
+
+The `multiplayer/` folder holds an online version for up to four wizards, written in TypeScript with Three.js. Claim the Sage Relic to become the Grand Sage and unleash the Grand Fissure.
+See [multiplayer/README.md](multiplayer/README.md) for how to play, run and deploy it.
